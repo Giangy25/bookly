@@ -1,0 +1,8 @@
+<h1>Search the next Book</h1>
+<div  class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Enter the category" [(ngModel)]="category" aria-describedby="button-addon2">
+  <button (click)="search(category)" class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+</div>
+<div>
+  <app-book-card [books]="book"></app-book-card>
+</div>

@@ -1,0 +1,19 @@
+h1 {
+  text-align: center;
+
+}
+
+.input-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-control {
+  height: 25px;
+  margin: 10px;
+}
+
+.btn {
+  height: 30px;
+}
