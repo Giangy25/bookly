@@ -1,8 +1,9 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BookCardComponent } from "../book-card/book-card.component";
 import { ApiService } from '../../service/api.service';
+import { error } from 'node:console';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { ApiService } from '../../service/api.service';
 export class HomePageComponent implements OnInit {
   category!: string;
   book: any[] = [];
-books: any;
+  books: any;
 
   constructor(private apiService: ApiService) { }
   ngOnInit(): void { }
@@ -22,10 +23,13 @@ books: any;
   search(category: string) {
     this.apiService.getCategory(category).subscribe({
       next: (data) => {
-        this.book = data.works;
-        console.log('search', data);
-        console.log(this.book)
-      }
+          this.book = data.works;
+          console.log('search', data);
+          console.log(this.book)
+      },
+       error: (error) => {
+        console.error('search error',error)
+       }
     })
   }
 }

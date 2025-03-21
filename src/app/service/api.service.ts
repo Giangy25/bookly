@@ -15,4 +15,8 @@ export class ApiService {
     return this.http.get<any>(`${this.url}/subjects/${category}.json`)
   }
 
+  getBookDetails(bookKey:string):Observable<any>{
+    return this.http.get<any>(`${this.url}${bookKey}.json`)
+  }
+
 }

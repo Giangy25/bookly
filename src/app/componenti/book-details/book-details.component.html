@@ -1,1 +1,14 @@
-<p>book-details works!</p>
+<button class="btn btn-outline-primary mb-2 me-2" (click)="openLg(content)">Details</button>
+
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h3 class="modal-title">{{details.title}}</h3>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<p >{{details.description?.value || details.description}}</p>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+	</div>
+</ng-template>
