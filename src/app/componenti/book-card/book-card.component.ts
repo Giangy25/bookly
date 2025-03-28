@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit, TemplateRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../service/api.service';
 import { BookDetailsComponent } from "../book-details/book-details.component";
-import { error } from 'node:console';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @Component({
@@ -33,5 +34,6 @@ export class BookCardComponent implements OnInit {
       }
     })
   }
+
 
 }

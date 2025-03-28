@@ -1,4 +1,4 @@
-import { Component, inject, Input, TemplateRef } from '@angular/core';
+import { Component, inject, Input, OnChanges, SimpleChanges, TemplateRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -12,13 +12,19 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class BookDetailsComponent {
   @Input() details: any;
+  localDetails: any;
   private modalService = inject(NgbModal);
-  content!: TemplateRef<BookDetailsComponent>;
-
 
   constructor() { }
 
-  openLg(content: TemplateRef<BookDetailsComponent>) {
-    this.modalService.open(content, { size: 'lg' });
+  openLg(content: TemplateRef<any>) {
+    if (!this.details) {
+      console.warn("⚠️ 'details' non è pronto, riprova più tardi!");
+      return;
+    }else{
+      this.details = undefined;
+      this.modalService.open(content, { size: 'lg' });
+    }
   }
+
 }
